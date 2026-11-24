@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <path d="M8 6 H56 V32 C56 48 32 58 32 58 C32 58 8 48 8 32 Z" fill="#E6C95F" stroke="#24231F" stroke-width="4" />
+  <path d="M13 11 H51 V31 C51 43 32 52 32 52 C32 52 13 43 13 31 Z" fill="#303A25" />
+  <rect x="14" y="23" width="36" height="14" fill="#D9533F" />
+  <text x="32" y="34" text-anchor="middle" fill="#F5EAC7" font-family="Impact, sans-serif" font-size="11" font-weight="bold">TI24C</text>
+</svg>

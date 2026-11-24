@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Masuk — Kas Kita TI24C Champions</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Yellowtail&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/input.css" />
+    <link rel="stylesheet" href="../styles/custom.css" />
+  </head>
+  <body class="min-h-screen flex items-center justify-center p-4 sm:p-6">
+    <main class="w-full max-w-4xl grid grid-cols-1 lg:grid-cols-12 border-2 border-ink rounded-md shadow-varsity-lg overflow-hidden bg-cream">
+      <!-- Panel Identitas Kiri -->
+      <section
+        class="lg:col-span-5 bg-olive text-cream p-6 sm:p-8 flex flex-col justify-between border-b-2 lg:border-b-0 lg:border-r-2 border-ink varsity-stitch-light"
+      >
+        <div class="space-y-4">
+          <div id="login-emblem-slot" class="inline-block"></div>
+          <div class="space-y-1">
+            <span class="varsity-badge bg-gold text-ink">PORTAL KEUANGAN KELAS</span>
+            <h1 class="text-3xl sm:text-4xl font-bold uppercase tracking-wider text-cream leading-tight">
+              KAS KITA <span class="block font-script text-gold text-3xl lowercase mt-1">TI24C Champions</span>
+            </h1>
+          </div>
+          <p class="text-sm text-parchment leading-relaxed">
+            Transparansi iuran kas, pencatatan cicilan, verifikasi transfer, dan kuitansi digital resmi kelas TI24C.
+          </p>
+        </div>
+
+        <div class="mt-8 pt-4 border-t border-cream/25 text-xs text-parchment space-y-1">
+          <p class="font-display uppercase tracking-wider text-gold font-bold">Keamanan Berlapis</p>
+          <p>Dilindungi autentikasi terenkripsi & kebijakan privasi Row Level Security.</p>
+        </div>
+      </section>
+
+      <!-- Panel Form Kanan -->
+      <section class="lg:col-span-7 p-6 sm:p-8 space-y-5">
+        <div id="auth-notice-slot"></div>
+
+        <!-- Tab Navigasi Masuk / Daftar Akun -->
+        <div id="auth-tabs" class="grid grid-cols-2 gap-2 p-1 bg-parchment border-2 border-ink rounded-md">
+          <button
+            type="button"
+            id="tab-signin"
+            class="py-2 font-display uppercase text-xs font-bold tracking-wider rounded bg-gold text-ink border border-ink"
+          >
+            Masuk Akun
+          </button>
+          <button
+            type="button"
+            id="tab-signup"
+            class="py-2 font-display uppercase text-xs font-bold tracking-wider rounded text-ink hover:bg-cream/60"
+          >
+            Daftar Anggota
+          </button>
+        </div>
+
+        <!-- 1. Form Masuk -->
+        <form id="signin-form" novalidate class="space-y-4">
+          <div>
+            <label for="signin-email" class="block font-display uppercase text-xs font-bold tracking-wider text-ink mb-1"> Email Terdaftar * </label>
+            <input id="signin-email" type="email" autocomplete="email" placeholder="nama@email.com" class="varsity-input" required />
+            <p id="err-signin-email" class="hidden text-xs font-semibold text-champion-red mt-1"></p>
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between mb-1">
+              <label for="signin-password" class="block font-display uppercase text-xs font-bold tracking-wider text-ink"> Kata Sandi * </label>
+              <button type="button" id="open-forgot-btn" class="text-xs font-semibold text-champion-red hover:underline">Lupa kata sandi?</button>
+            </div>
+            <input
+              id="signin-password"
+              type="password"
+              autocomplete="current-password"
+              placeholder="Masukkan kata sandi"
+              class="varsity-input"
+              required
+            />
+            <p id="err-signin-password" class="hidden text-xs font-semibold text-champion-red mt-1"></p>
+          </div>
+
+          <button id="signin-submit-btn" type="submit" class="varsity-btn-primary w-full py-3 text-base">Masuk ke Dashboard</button>
+        </form>
+
+        <!-- 2. Form Daftar Akun Anggota -->
+        <form id="signup-form" novalidate class="hidden space-y-4">
+          <p class="text-xs text-brown bg-parchment border border-ink rounded p-2.5">
+            Akun baru otomatis terdaftar sebagai <strong>Anggota</strong>. Setelah mendaftar, Bendahara akan menautkan akun ke NIM Anda.
+          </p>
+
+          <div>
+            <label for="signup-name" class="block font-display uppercase text-xs font-bold tracking-wider text-ink mb-1">
+              Nama Lengkap Mahasiswa *
+            </label>
+            <input id="signup-name" type="text" autocomplete="name" placeholder="Nama lengkap sesuai daftar kelas" class="varsity-input" required />
+            <p id="err-signup-name" class="hidden text-xs font-semibold text-champion-red mt-1"></p>
+          </div>
+
+          <div>
+            <label for="signup-email" class="block font-display uppercase text-xs font-bold tracking-wider text-ink mb-1"> Email Aktif * </label>
+            <input id="signup-email" type="email" autocomplete="email" placeholder="nama@email.com" class="varsity-input" required />
+            <p id="err-signup-email" class="hidden text-xs font-semibold text-champion-red mt-1"></p>
+          </div>
+
+          <div>
+            <label for="signup-password" class="block font-display uppercase text-xs font-bold tracking-wider text-ink mb-1">
+              Buat Kata Sandi (Min. 8 Karakter) *
+            </label>
+            <input id="signup-password" type="password" autocomplete="new-password" placeholder="Minimal 8 karakter" class="varsity-input" required />
+            <p id="err-signup-password" class="hidden text-xs font-semibold text-champion-red mt-1"></p>
+          </div>
+
+          <button id="signup-submit-btn" type="submit" class="varsity-btn-secondary w-full py-3 text-base">Daftar Akun Anggota</button>
+        </form>
+
+        <!-- 3. Form Lupa Kata Sandi -->
+        <form id="forgot-form" novalidate class="hidden space-y-4">
+          <div class="space-y-1">
+            <h2 class="text-lg font-bold uppercase text-ink">Pemulihan Kata Sandi</h2>
+            <p class="text-xs text-brown">Masukkan email terdaftar untuk menerima tautan pengaturan ulang kata sandi.</p>
+          </div>
+
+          <div>
+            <label for="forgot-email" class="block font-display uppercase text-xs font-bold tracking-wider text-ink mb-1"> Email Terdaftar * </label>
+            <input id="forgot-email" type="email" placeholder="nama@email.com" class="varsity-input" required />
+            <p id="err-forgot-email" class="hidden text-xs font-semibold text-champion-red mt-1"></p>
+          </div>
+
+          <div class="flex gap-2">
+            <button type="button" id="back-to-signin-btn" class="varsity-btn-neutral flex-1">Kembali</button>
+            <button type="submit" id="forgot-submit-btn" class="varsity-btn-primary flex-1">Kirim Tautan Reset</button>
+          </div>
+        </form>
+
+        <!-- 4. Form Atur Kata Sandi Baru (Saat klik tautan email PASSWORD_RECOVERY) -->
+        <form id="recovery-update-form" novalidate class="hidden space-y-4">
+          <div class="space-y-1">
+            <span class="varsity-badge bg-gold text-ink">PEMULIHAN AKUN</span>
+            <h2 class="text-lg font-bold uppercase text-ink">Buat Kata Sandi Baru</h2>
+            <p class="text-xs text-brown">Silakan masukkan kata sandi baru minimal 8 karakter untuk menyelesaikan pemulihan akun Anda.</p>
+          </div>
+
+          <div>
+            <label for="recovery-new-pass" class="block font-display uppercase text-xs font-bold tracking-wider text-ink mb-1">
+              Kata Sandi Baru *
+            </label>
+            <input id="recovery-new-pass" type="password" minlength="8" placeholder="Minimal 8 karakter" class="varsity-input" required />
+            <p id="err-recovery-pass" class="hidden text-xs font-semibold text-champion-red mt-1"></p>
+          </div>
+
+          <button type="submit" id="recovery-submit-btn" class="varsity-btn-primary w-full py-3">Simpan Kata Sandi Baru</button>
+        </form>
+      </section>
+    </main>
+
+    <script type="module" src="../js/pages/login.page.js"></script>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+/* Garis double-stitch ala patch bordir jaket varsity */
+.varsity-stitch {
+  position: relative;
+}
+
+.varsity-stitch::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1.5px dashed rgba(36, 35, 31, 0.35);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.varsity-stitch-light::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1.5px dashed rgba(245, 234, 199, 0.3);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+/* Scrollbar kustom bernuansa vintage */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E8D0A8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #303A25;
+  border: 1px solid #24231F;
+  border-radius: 3px;
+}
+
+@media (max-width: 640px) {
+  .varsity-stitch::after,
+  .varsity-stitch-light::after {
+    display: none;
+  }
+}
+
+/* Mode cetak bersih khusus Kuitansi Digital & Laporan Keuangan */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    background-image: none !important;
+  }
+
+  aside,
+  header,
+  #varsity-toast-container,
+  .no-print {
+    display: none !important;
+  }
+
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  #varsity-modal-root {
+    position: static !important;
+    background: transparent !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+
+  #varsity-modal-root > div {
+    box-shadow: none !important;
+    max-height: none !important;
+    max-width: 100% !important;
+    border: 2px solid #24231F !important;
+  }
+}

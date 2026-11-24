@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kas Kita — TI24C Champions</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Plus+Jakarta+Sans:wght@400;600&family=Yellowtail&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/styles/input.css" />
+  </head>
+  <body class="min-h-screen flex items-center justify-center p-6">
+    <main class="varsity-card-light p-8 max-w-md w-full text-center space-y-4">
+      <div class="w-10 h-10 mx-auto border-4 border-ink border-t-champion-red rounded-full animate-spin"></div>
+      <div class="space-y-1">
+        <span class="varsity-badge bg-gold text-ink">TI24C CHAMPIONS</span>
+        <h1 class="text-2xl font-bold uppercase text-ink">Memuat Portal Kas Kita</h1>
+        <p class="text-xs text-brown">Memeriksa sesi autentikasi Anda...</p>
+      </div>
+      <noscript>
+        <p class="text-xs text-champion-red font-semibold">
+          JavaScript diperlukan. <a href="/src/pages/login.html" class="underline">Klik di sini untuk masuk</a>.
+        </p>
+      </noscript>
+    </main>
+
+    <script type="module">
+      import { getCurrentSessionAndProfile } from "./src/js/services/auth.service.js";
+
+      async function routeFromRoot() {
+        try {
+          const { session } = await getCurrentSessionAndProfile();
+          if (session) {
+            window.location.replace("/src/pages/dashboard.html");
+          } else {
+            window.location.replace("/src/pages/login.html");
+          }
+        } catch {
+          window.location.replace("/src/pages/login.html");
+        }
+      }
+
+      routeFromRoot();
+    </script>
+  </body>
+</html>
