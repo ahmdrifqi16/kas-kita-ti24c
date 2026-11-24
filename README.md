@@ -4,7 +4,7 @@ Aplikasi manajemen keuangan kas kelas berbasis web untuk **TI24C — Champions**
 
 ## Anggota Kelompok
 
-Disusun oleh kelompok **TI24C — Champions** (diurutkan berdasarkan abjad):
+Disusun oleh kelompok **TI24C — Champions**:
 
 | No. | Nama Lengkap | NIM |
 | :-: | :--- | :--- |
